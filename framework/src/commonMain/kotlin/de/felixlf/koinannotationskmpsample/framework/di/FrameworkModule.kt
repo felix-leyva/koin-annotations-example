@@ -1,17 +1,11 @@
 package de.felixlf.koinannotationskmpsample.framework.di
 
-import de.felixlf.koinannotationskmpsample.entity.repository.FileReader
-import de.felixlf.koinannotationskmpsample.framework.file.FileReaderImpl
 import org.koin.core.annotation.Module
-import org.koin.core.annotation.Single
 
-@Module
+// We should add the *Module (from CommonMain) into the Native*Module, so that declarations inside the
+// Native*Module take priority: then declarations inside specific Native*Module (targets) override those in *Module
+@Module([FrameworkModule::class])
 expect class NativeFrameworkModule()
 
-@Module([NativeFrameworkModule::class])
-class FrameworkModule {
-    @Single
-    fun provideFileReaderImpl(): FileReader {
-        return FileReaderImpl()
-    }
-}
+@Module
+class FrameworkModule

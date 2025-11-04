@@ -13,11 +13,13 @@ import kotlinx.coroutines.withContext
 import kotlinx.io.IOException
 import kotlinx.io.buffered
 import kotlinx.io.readByteArray
+import org.koin.core.annotation.Single
 
 /**
  * JVM implementation of FileReader using Okio.
  * Provides efficient file reading operations with proper resource management.
  */
+@Single
 class FileReaderImpl(private val readDispatcher: CoroutineDispatcher = Dispatchers.Default) : FileReader {
     override suspend fun readTextFile(fileSource: FileSource): Either<FileError, String> {
         return try {
