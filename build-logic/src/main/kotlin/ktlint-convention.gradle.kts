@@ -14,6 +14,17 @@ ktlint {
     }
     filter {
         exclude("**/generated/**")
-        exclude("**/build/**")
+        exclude("**/buildkonfig/**")
+        exclude { element ->
+            element.file.path.contains("${File.separator}build${File.separator}")
+        }
+    }
+}
+
+// Exclude generated files from all ktlint check tasks
+tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.BaseKtLintCheckTask>().configureEach {
+    exclude { element ->
+        element.file.path.contains("${File.separator}build${File.separator}buildkonfig${File.separator}") ||
+        element.file.path.contains("${File.separator}build${File.separator}generated${File.separator}")
     }
 }

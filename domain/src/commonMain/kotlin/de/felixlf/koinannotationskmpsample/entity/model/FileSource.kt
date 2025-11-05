@@ -16,35 +16,4 @@ data class FileSource(
     val rawSource: RawSource,
     val mimeType: String,
     val size: Long? = null,
-) {
-    /**
-     * Gets the file extension without the dot.
-     * Returns null if no extension is found.
-     */
-    val extension: String?
-        get() = name.substringAfterLast('.', "").takeIf { it.isNotEmpty() }
-
-    /**
-     * Checks if this file is a text file based on MIME type.
-     */
-    val isTextFile: Boolean
-        get() = mimeType.startsWith("text/")
-
-    /**
-     * Checks if this file is a PDF.
-     */
-    val isPdf: Boolean
-        get() = mimeType == "application/pdf" || extension?.lowercase() == "pdf"
-
-    /**
-     * Checks if this file is an EPUB.
-     */
-    val isEpub: Boolean
-        get() = mimeType == "application/epub+zip" || extension?.lowercase() == "epub"
-
-    /**
-     * Checks if this file is a Markdown file.
-     */
-    val isMarkdown: Boolean
-        get() = extension?.lowercase() in setOf("md", "markdown")
-}
+)
