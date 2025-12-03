@@ -100,7 +100,7 @@ in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and r
 ## Learn More
 
 ### About This Project
-- [Detailed Architecture Guide](./KOIN_KMP_GUIDE.md): Comprehensive guide on implementing Koin Annotations in KMP
+- [Detailed Architecture Guide](https://medium.com/@felix.lf/a-guide-to-modern-dependency-injection-in-kmp-with-koin-annotations-dcc086a976f3): Comprehensive guide on implementing Koin Annotations in KMP
 
 ### Technologies Used
 - [Koin Documentation](https://insert-koin.io/): Dependency injection framework
